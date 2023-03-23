@@ -3,12 +3,12 @@ pipeline{
 	agent any
 
 	environment {
-		DOCKERHUB_CREDENTIALS=credentials('hub.docker')
+		DOCKERHUB_CREDENTIALS=credentials('docker-id')
 	}
 	stages {
 		stage('Build') {
 			steps {
-				sh 'docker build -t zakithereal33888/nodeapp:latest .'
+				sh 'docker build -t khaddaji/jenkins-app:latest .'
 			}
 		}
 		stage('Login') {
@@ -18,7 +18,7 @@ pipeline{
 		}
 		stage('Push') {
 			steps {
-				sh 'docker push zakithereal33888/nodeapp:latest'
+				sh 'docker push khaddaji/jenkins-app:latest'
 			}
 		}
 	}
